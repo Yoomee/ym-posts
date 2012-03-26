@@ -1,0 +1,4 @@
+=semantic_form_for(post, :format => :js, :remote => true, :html => {:class => "post_form"}) do |form|
+  =form.inputs do
+    =form.input :text, :label => false, :input_html => {:rows => 3, :placeholder => "Post something"}
+    =form.commit_button "Post"
