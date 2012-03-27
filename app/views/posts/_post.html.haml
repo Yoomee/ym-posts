@@ -1,2 +1,15 @@
-.post.padding
-  =post.text
+.post.span8
+  .row
+    .post_user.span1
+      =link_to(image_for(post.user, "60x60#"), post.user)
+    .post_content.span7
+      .well
+        .post_intro
+          =link_to_self(post.user)
+          -if post.target
+            %i.icon-chevron-right
+            =link_to_self(post.target)
+        -if post.text.present?
+          =simple_format(auto_link(post.text))
+        -if post.image
+          =image_for(post, '140x')

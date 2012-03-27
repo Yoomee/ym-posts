@@ -1,9 +1,21 @@
-.posts {
-  width: 100%;
-}
 form.post_form {
   width: 100%;
 }
 form.post_form textarea {
   width: 100%;
+}
+.posts {
+  width: 100%;
+}
+div.post .post_intro {
+  margin-bottom: 10px;
+}
+div.post .post_user img {
+  width: 100%;
+}
+div.post .post_user {
+  text-align: center;
+}
+div.post .post_content p, .post .post_content img {
+  clear: both;
 }
