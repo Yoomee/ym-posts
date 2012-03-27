@@ -2,7 +2,14 @@ form.post_form {
   width: 100%;
 }
 form.post_form textarea {
-  width: 100%;
+  width: 98%;
+  padding: 1%;
+}
+form.post_form #post_text_input {
+  margin-bottom: 0px;
+}
+form.post_form input {
+  margin: 0;
 }
 .posts {
   width: 100%;
