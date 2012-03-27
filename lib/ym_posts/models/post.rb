@@ -6,6 +6,7 @@ module YmPosts::Post
     base.image_accessor(:image)
     base.validates_presence_of(:user)
     base.validate(:has_content)
+    base.acts_as_taggable
     base.send(:default_scope, base.order("created_at DESC"))
     base.scope :for_wall, (lambda do |target|
       conditions = "(target_type = :target_type AND target_id=:target_id)"
