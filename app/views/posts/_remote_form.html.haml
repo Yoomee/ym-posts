@@ -5,6 +5,8 @@
       =form.input :target_id, :as => :hidden
       =form.input :text, :label => false, :input_html => {:rows => 3, :placeholder => "Post something"}
       =form.input :tag_list
+      .post_attach_options
+        =link_to("Add a photo", "#", :data => {:toggle => "collapse", :target => "#post_image_input"})
+        =form.commit_button "Post", :button_html => {:class => "pull-right"}
       =form.input :retained_image, :as => :hidden
-      =form.input :image, :as => :file
-      =form.commit_button "Post"
+      =form.input :image, :as => :file, :label => false, :wrapper_html => {:class => "no-margin collapse#{post.errors[:image].present? ? ' in' : ''}"}
