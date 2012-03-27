@@ -5,7 +5,7 @@ module YmPosts::UserExt
   end
   
   def wall_posts
-    Post.for_wall(self)
+    ::Post.for_wall(self)
   end
   
 end

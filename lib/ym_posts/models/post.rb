@@ -13,6 +13,7 @@ module YmPosts::Post
       conditions << " OR user_id = :target_id" if target.is_a?(User)
       base.where([conditions, {:target_type => target.class.to_s, :target_id => target.id}])
     end)
+    base.per_page = 10
   end
   
   private
