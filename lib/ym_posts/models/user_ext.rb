@@ -4,4 +4,8 @@ module YmPosts::UserExt
     base.has_many :posts, :order => "created_at DESC"
   end
   
+  def wall_posts
+    Post.for_wall(self)
+  end
+  
 end
