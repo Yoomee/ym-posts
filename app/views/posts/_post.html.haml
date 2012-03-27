@@ -11,5 +11,6 @@
             =link_to_self(post.target)
         -if post.text.present?
           =simple_format(auto_link(post.text))
+        =post.tag_list
         -if post.image
           =image_for(post, '140x')

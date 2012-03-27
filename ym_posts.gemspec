@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails", "~> 3.1.0"
   s.add_dependency "ym_users"
+  s.add_dependency "ym_tags"
   s.add_dependency "jquery-rails"
   s.add_dependency 'remotipart', '~> 1.0'
   
