@@ -1,3 +1,5 @@
-.posts
+=# For pagination: needs a <action_name>.js.erb file for the action this partial is used on. Which replaces .posts div e.g. posts/index.js.erb
+.posts.loader-long
   -posts.each do |post|
     =render("posts/post", :post => post)
+  =will_paginate(posts, :remote => true)
