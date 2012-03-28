@@ -14,15 +14,13 @@ form.post_form input {
 .posts {
   width: 100%;
 }
-div.post .post_intro {
-  margin-bottom: 10px;
-}
-div.post .post_user img {
+div.post {
   width: 100%;
 }
 div.post .post_user {
-  text-align: center;
+  width: 100%;
+  padding-bottom: 5px;
 }
-div.post .post_content p, .post .post_content img {
-  clear: both;
+div.post .post_user img {
+  margin-right: 10px;
 }

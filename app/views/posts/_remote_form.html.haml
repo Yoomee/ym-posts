@@ -4,7 +4,7 @@
       =form.input :target_type, :as => :hidden
       =form.input :target_id, :as => :hidden
       =form.input :text, :label => false, :input_html => {:rows => 3, :placeholder => "Post something"}
-      =form.input :tag_list
+      =form.input :tag_list, :label => false, :input_html => {:placeholder => "Add tags"}
       .post_attach_options
         =link_to("Add a photo", "#", :data => {:toggle => "collapse", :target => "#post_image_input"})
         =form.commit_button "Post", :button_html => {:class => "pull-right"}

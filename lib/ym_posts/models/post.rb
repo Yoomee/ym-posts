@@ -5,7 +5,7 @@ module YmPosts::Post
     base.belongs_to(:target, :polymorphic => true)
     base.image_accessor(:image)
     base.validates_presence_of(:user)
-    base.send(:validates_property, :format, :of => :image, :in => [:jpeg, :png, :gif], :message => "must be an image")
+    base.send(:validates_property, :format, :of => :image, :in => [:jpeg, :jpg, :png, :gif], :message => "must be an image")
     base.validate(:has_content)
     base.acts_as_taggable
     base.send(:default_scope, base.order("created_at DESC"))

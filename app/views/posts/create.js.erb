@@ -1,5 +1,4 @@
 <%=remotipart_response do%>
-  console.log(<%=remotipart_submitted?%>);
   $('form#new_post').replaceWith('<%=escape_javascript(render('posts/remote_form', :post => (post.valid? ? Post.new : post)))%>');
   <%if post.valid?%>
     $('div.posts').prepend('<%=escape_javascript(render('posts/post', :post => post))%>');
