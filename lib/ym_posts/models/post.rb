@@ -65,6 +65,7 @@ module YmPosts::Post
   
   def get_video_info
     if video_url.present?
+      self.video_url = "http://#{video_url}" unless video_url =~ /^http/
       self.video_info = VideoInfo.new(video_url)
     end
   end

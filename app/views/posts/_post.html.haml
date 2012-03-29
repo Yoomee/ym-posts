@@ -14,8 +14,19 @@
     .post_content.clear
       -if post.text.present?
         =simple_format(auto_link(post.text))
-      =link_to("#", :data => {:toggle => "modal", :backdrop => false, :"modal-url" => modal_post_path(post), :"modal-id" => "post_modal"}) do
-        =image_for(post, '140x', :class => "#{post.has_video? ? 'video-image' : ''}")
+      .row
+        .span2
+          =link_to("#", :data => {:toggle => "modal", :backdrop => false, :"modal-url" => modal_post_path(post), :"modal-id" => "post_modal"}) do
+            =image_for(post, '140x', :class => "#{post.has_video? ? 'video-image' : ''}")
+        -if post.has_video? && post.video_title.present?
+          .span5
+            =link_to(post.video_title, "#", :data => {:toggle => "modal", :backdrop => false, :"modal-url" => modal_post_path(post), :"modal-id" => "post_modal"})
+            %br
+            =link_to(post.video_youtube? ? 'youtube.com' : 'vimeo.com', post.video_url, :target => "_blank", :class => "small-info-text")
+            -if post.video_description.present?
+              %p=strip_tags(post.video_description)
+          
+        
       -if post.tags.present?
         .post_tags.mt-10
           -post.tags.each do |tag|
