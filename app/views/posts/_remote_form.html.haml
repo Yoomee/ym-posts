@@ -1,12 +1,15 @@
 -if can?(:create, Post)
-  =semantic_form_for(post, :format => :js, :remote => true, :multipart => true, :html => {:class => "post_form"}) do |form|
+  =semantic_form_for(post, :format => :js, :remote => true, :multipart => true, :html => {:class => "post_form#{post.errors.present? ? ' expanded' : ''}"}) do |form|
     =form.inputs do
       =form.input :target_type, :as => :hidden
       =form.input :target_id, :as => :hidden
-      =form.input :text, :label => false, :input_html => {:rows => 3, :placeholder => "Post something"}
-      =form.input :tag_list, :label => false, :input_html => {:placeholder => "Add tags", :'data-autocomplete' => autocomplete_tag_name_tags_path, :'data-delimiter' => ', ', :'data-auto_focus' => true}
-      .post_attach_options
-        =link_to("Add a photo", "#", :data => {:toggle => "collapse", :target => "#post_image_input"})
-        =form.commit_button "Post", :button_html => {:class => "pull-right"}
+      .fake-textarea
+        =form.input :text, :label => false, :input_html => {:rows => 3, :placeholder => "Post something"}
+        =form.input :tag_list, :label => "<i class='icon icon-tag'></i>".html_safe, :input_html => {:placeholder => "Tags", :'data-autocomplete' => autocomplete_tag_name_tags_path, :'data-delimiter' => ', '}, :wrapper_html => {:class => "post_tag_list_input"}
+    .mt-10
       =form.input :retained_image, :as => :hidden
-      =form.input :image, :as => :file, :label => false, :wrapper_html => {:class => "no-margin collapse#{post.errors[:image].present? ? ' in' : ''}"}
+      =form.input :image, :as => :file, :label => false, :wrapper_html => {:class => "collapse#{post.errors[:image].present? ? ' in' : ''}"}
+      =form.input :video_url, :label => false, :wrapper_html => {:class => "collapse#{post.errors[:video_url].present? ? ' in' : ''}"}, :input_html => {:placeholder => "URL from YouTube or Vimeo"}
+      =link_to("Add a photo", "#", :data => {:toggle => "collapse", :target => "#post_image_input"}, :class => "btn btn-small")
+      =link_to("Add a video", "#", :data => {:toggle => "collapse", :target => "#post_video_url_input"}, :class => "btn btn-small")
+      =form.commit_button "Post", :button_html => {:class => "pull-right btn-primary"}

@@ -1,12 +1,31 @@
 form.post_form {
   width: 100%;
 }
-form.post_form textarea {
-  width: 98%;
-  padding: 1%;
+form.post_form .form-actions {
+  margin-top: 0;
+  border: none;
 }
-form.post_form #post_text_input {
-  margin-bottom: 0px;
+form.post_form .post_tag_list_input .control-label {
+  float: left;
+}
+form.post_form .post_tag_list_input {
+  border-top: 1px dotted #ccc;
+  padding-top: 4px;
+  font-size: 11px;
+  color: #999;
+}
+form.post_form .post_tag_list_input input {
+  font-weight: normal;
+  width: 100%;
+}
+form.post_form .post_tag_list_input label {
+  margin-right: 5px;
+}
+form.post_form .post_tag_list_input label, form.post_form .post_tag_list_input div.controls {
+  display: inline-block;
+}
+form.post_form .fake-textarea .control-group, form.post_form .fake-textarea textarea {
+  margin-bottom: 0;
 }
 form.post_form input {
   margin: 0;
@@ -23,4 +42,32 @@ div.post .post_user {
 }
 div.post .post_user img {
   margin-right: 10px;
+}
+form.post_form div, form.post_form.expanded .hidden, form.post_form.expanded .collapse {
+  display: none;
+}
+form.post_form.expanded div, 
+form.post_form .fake-textarea, 
+form.post_form .fake-textarea #post_text_input,
+form.post_form .fake-textarea #post_text_input div,
+form.post_form.expanded .collapse.in {
+  display: block;
+}
+form.post_form .fake-textarea, 
+form.post_form .fake-textarea textarea  {
+  height: 20px;
+}
+form.post_form.expanded .fake-textarea,
+form.post_form.expanded .fake-textarea textarea {
+  height: inherit;
+}
+#post_modal, #post_modal .modal-body {
+  width: auto;
+/*  max-height: none;*/
+}
+#post_modal .modal-header {
+  border: none;
+}
+#post_modal a.close {
+  margin-top: -2px;
 }

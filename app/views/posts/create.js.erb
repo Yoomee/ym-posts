@@ -1,6 +1,6 @@
 <%=remotipart_response do%>
-  $('form#new_post').replaceWith('<%=escape_javascript(render('posts/remote_form', :post => (post.valid? ? Post.new : post)))%>');
-  <%if post.valid?%>
-    $('div.posts').prepend('<%=escape_javascript(render('posts/post', :post => post))%>');
+  $('form#new_post').replaceWith('<%=escape_javascript(render('posts/remote_form', :post => (current_post.valid? ? Post.new : current_post)))%>');
+  <%if current_post.valid?%>
+    $('div.posts').prepend('<%=escape_javascript(render('posts/post', :post => current_post))%>');
   <%end%>
 <%end%>

@@ -14,9 +14,9 @@
     .post_content.clear
       -if post.text.present?
         =simple_format(auto_link(post.text))
+      =link_to("#", :data => {:toggle => "modal", :backdrop => false, :"modal-url" => modal_post_path(post), :"modal-id" => "post_modal"}) do
+        =image_for(post, '140x', :class => "#{post.has_video? ? 'video-image' : ''}")
       -if post.tags.present?
-        .post_tags.mb-10
+        .post_tags.mt-10
           -post.tags.each do |tag|
-            %span.label=tag.to_s
-      -if post.image
-        =image_for(post, '140x')
+            =link_to_tag(tag)

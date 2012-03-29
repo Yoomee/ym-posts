@@ -1,0 +1,7 @@
+.modal-header
+  %a.close{:"data-dismiss" => "modal"} x
+.modal-body
+  -if current_post.has_video?
+    %iframe{:width => 560, :height => 315, :src => current_post.video_embed_url, :frameborder => 0, :allowfullscreen => true}
+  -else
+    =image_for(current_post, "560x>")
