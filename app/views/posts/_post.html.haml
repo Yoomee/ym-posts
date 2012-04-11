@@ -1,6 +1,6 @@
 .post
   .well
-    .post_user.pull-left.clear.border-bottom.mb-10
+    .post_user.pull-left.clear.border-bottom.mb-1
       =link_to(image_for(post.user, "32x32#"), post.user, :class => "pull-left")
       .pull-left
         =link_to_self(post.user)
@@ -29,6 +29,6 @@
           
         
       -if post.tags.present?
-        .post_tags.mt-10
+        .post_tags.mt-1
           -post.tags.each do |tag|
             =link_to_tag(tag)

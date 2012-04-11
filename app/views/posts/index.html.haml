@@ -4,7 +4,7 @@
       %h1=title("Latest posts")
   .row
     .span2
-      %h3.mb-10 Trending tags
+      %h3.mb-1 Trending tags
       =render("tags/list", :tags => top_tags)
     .span8
       -if can?(:create, Post)
