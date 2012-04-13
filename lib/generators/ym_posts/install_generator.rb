@@ -11,6 +11,10 @@ module YmPosts
         copy_file "controllers/posts_controller.rb", "app/controllers/posts_controller.rb"
         copy_file "views/tags/show.html.haml", "app/views/tags/show.html.haml"
         copy_file "views/tags/show.js.erb", "app/views/tags/show.js.erb"
+
+        if should_add_abilities?('Post')
+          add_ability(:user, ["can [:read, :create], Post", "can [:update, :destroy], Post, :user_id => user.id"])
+        end
         
         if File.exists?("#{Rails.root}/app/controllers/tags_controller.rb")
           insert_into_file "app/controllers/tags_controller.rb", "  expose(:posts) {Post.tagged_with(current_tag.name).page(params[:page])}\n", :after => "include YmTags::TagsController\n"
@@ -30,6 +34,16 @@ module YmPosts
           @prev_migration_nr += 1
         end
         @prev_migration_nr.to_s
+      end
+
+      private
+      def should_add_abilities?(model_name)
+        File.exists?("#{Rails.root}/app/models/ability.rb") && !File.open("#{Rails.root}/app/models/ability.rb").read.include?(model_name)
+      end
+
+      def add_ability(role, abilities)
+        ability_string = [*abilities].join("\n      ")
+        insert_into_file "app/models/ability.rb", "\n      #{ability_string}", :after => "#{role} ability"
       end
       
     end
