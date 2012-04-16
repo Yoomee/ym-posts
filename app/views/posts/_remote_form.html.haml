@@ -12,4 +12,4 @@
       =form.input :video_url, :label => false, :wrapper_html => {:class => "collapse#{post.errors[:video_url].present? ? ' in' : ''}"}, :input_html => {:placeholder => "URL from YouTube or Vimeo"}
       =link_to("Add a photo", "#", :data => {:toggle => "collapse", :target => "#post_image_input"}, :class => "btn btn-small")
       =link_to("Add a video", "#", :data => {:toggle => "collapse", :target => "#post_video_url_input"}, :class => "btn btn-small")
-      =form.commit_button "Post", :button_html => {:class => "pull-right btn-primary"}
+      =form.commit_button "Post", :button_html => {:class => "pull-right btn-primary", :"data-loading-text" => "Posting..."}
