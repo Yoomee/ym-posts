@@ -1,1 +1,0 @@
-$(".posts .post#post<%=current_post.id%>").fadeOut()
