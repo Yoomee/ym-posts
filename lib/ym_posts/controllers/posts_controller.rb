@@ -11,6 +11,10 @@ module YmPosts::PostsController
     current_post.save
   end
   
+  def destroy
+    current_post.destroy
+  end
+  
   def modal
     render :layout => false
   end

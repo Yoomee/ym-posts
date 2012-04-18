@@ -1,4 +1,4 @@
-.post
+.post{:id => "post#{post.id}"}
   .well
     .post_user.pull-left.clear.border-bottom.mb-1
       =link_to(image_for(post.user, "32x32#"), post.user, :class => "pull-left")
@@ -32,3 +32,4 @@
         .post_tags.mt-1
           -post.tags.each do |tag|
             =link_to_tag(tag)
+      =link_if_can "Delete", post, :method => :delete, :confirm => 'Are you sure?', :remote => true
