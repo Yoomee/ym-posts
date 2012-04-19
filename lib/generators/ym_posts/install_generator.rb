@@ -23,7 +23,7 @@ module YmPosts
         # Migrations must go last
         Dir[File.dirname(__FILE__) + '/templates/migrations/*.rb'].each do |file_path|
           file_name = file_path.split("/").last
-          migration_template "migrations/#{file_name}", "db/migrate/#{file_name.sub(/^\d+\_/, '')}"
+          try_migration_template "migrations/#{file_name}", "db/migrate/#{file_name.sub(/^\d+\_/, '')}"
         end
       end
 
@@ -46,6 +46,14 @@ module YmPosts
           tabbed_space = role==:open ? "\n    " : "\n      "
           ability_string = tabbed_space + [*abilities].join(tabbed_space)
           insert_into_file "app/models/ability.rb", ability_string, :after => "#{role} ability", :force => true
+        end
+      end
+
+      def try_migration_template(source, destination)
+        begin
+          migration_template source, destination
+        rescue Rails::Generators::Error => e
+          puts e
         end
       end
       
