@@ -1,3 +1,4 @@
 ym_gem "ym_core"
 ym_gem "ym_tags"
 ym_gem "ym_users"
+ym_gem "ym_videos"

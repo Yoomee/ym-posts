@@ -7,11 +7,11 @@ require "ym_posts/version"
 Gem::Specification.new do |s|
   s.name        = "ym_posts"
   s.version     = YmPosts::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of YmPosts."
-  s.description = "TODO: Description of YmPosts."
+  s.authors     = ["Matt Atkins", "Ian Mooney", "Si Wilkins"]
+  s.email       = ["matt@yoomee.com", "ian@yoomee.com", "si@yoomee.com"]
+  s.homepage    = "http://www.yoomee.com"
+  s.summary     = "Summary of YmPosts."
+  s.description = "Description of YmPosts."
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
@@ -20,9 +20,9 @@ Gem::Specification.new do |s|
   s.add_dependency "ym_core" 
   s.add_dependency "ym_tags"
   s.add_dependency "ym_users"
+  s.add_dependency "ym_videos"
   s.add_dependency "jquery-rails"
   s.add_dependency 'remotipart', '~> 1.0'
-  s.add_dependency 'video_info'
     
   # for testing
   s.add_development_dependency "mysql2"    
