@@ -5,7 +5,7 @@
       =form.input :target_id, :as => :hidden
       .fake-textarea
         =form.input :text, :label => false, :input_html => {:rows => 3, :placeholder => "Post something"}
-        =form.input :tag_list, :label => "<i class='icon icon-tag'></i>".html_safe, :input_html => {:placeholder => "Tags", :'data-autocomplete' => autocomplete_tag_name_tags_path, :'data-delimiter' => ', '}, :wrapper_html => {:class => "post_tag_list_input"}
+        =form.input :tag_list, :label => "<i class='icon icon-tag'></i>".html_safe, :input_html => {:placeholder => "Tags", :'data-autocomplete' => autocomplete_tags_path, :'data-delimiter' => ', '}, :wrapper_html => {:class => "post_tag_list_input"}
     .mt-1
       =form.input :retained_image, :as => :hidden
       =form.input :image, :as => :file, :label => false, :wrapper_html => {:class => "collapse#{post.errors[:image].present? ? ' in' : ''}"}
