@@ -8,7 +8,9 @@ module YmPosts::PostsController
   
   def create
     current_post.user = current_user
-    current_post.save
+    if current_post.save
+      @new_post = Post.new(:target => current_post.target, :user => current_post.user)
+    end
   end
   
   def destroy
