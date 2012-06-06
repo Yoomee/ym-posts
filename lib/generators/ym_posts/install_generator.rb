@@ -14,6 +14,7 @@ module YmPosts
 
         if should_add_abilities?('Post')
           add_ability(:user, ["can [:read, :create], Post", "can [:update, :destroy], Post, :user_id => user.id"])
+          insert_into_file "app/controllers/posts_controller.rb", "\n  load_and_authorize_resource", :after => "include YmPosts::PostsController"
         end
         
         if File.exists?("#{Rails.root}/app/controllers/tags_controller.rb")
