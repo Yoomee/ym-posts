@@ -1,3 +1,6 @@
+require 'ym_core'
+require 'ym_videos'
+require 'ym_tags'
 require "ym_posts/engine"
 
 module YmPosts

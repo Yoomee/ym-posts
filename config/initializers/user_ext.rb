@@ -1,3 +1,4 @@
+require 'ym_users'
 YmUsers::User.class_eval do
 
   class << self
