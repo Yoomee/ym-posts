@@ -37,6 +37,6 @@
           
         
       -if post.tags.present?
-        .post_tags.mt-1
+        .post_tags.mb-1
           -post.tags.each do |tag|
             =link_to_tag(tag, :class => "pull-left mr-1")
