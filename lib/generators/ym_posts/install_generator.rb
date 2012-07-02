@@ -13,7 +13,7 @@ module YmPosts
         copy_file "views/tags/show.js.erb", "app/views/tags/show.js.erb"
 
         if should_add_abilities?('Post')
-          add_ability(:user, ["can [:read, :create], Post", "can [:update, :destroy], Post, :user_id => user.id"])
+          add_ability(:user, ["can [:read, :create, :file], Post", "can [:update, :destroy], Post, :user_id => user.id"])
           insert_into_file "app/controllers/posts_controller.rb", "\n  load_and_authorize_resource", :after => "include YmPosts::PostsController"
         end
         
@@ -22,10 +22,8 @@ module YmPosts
         end
         
         # Migrations must go last
-        Dir[File.dirname(__FILE__) + '/templates/migrations/*.rb'].each do |file_path|
-          file_name = file_path.split("/").last
-          try_migration_template "migrations/#{file_name}", "db/migrate/#{file_name.sub(/^\d+\_/, '')}"
-        end
+        try_migration_template "migrations/create_posts.rb", "db/migrate/create_posts"
+        try_migration_template "migrations/add_file_fields_to_posts.rb", "db/migrate/add_file_fields_to_posts"
       end
 
       def self.next_migration_number(path)

@@ -16,6 +16,12 @@
     .post_content.clear
       -if post.text.present?
         =simple_format(auto_link(post.text))
+      -if post.file
+        .row.mb-1
+          .span5
+            =link_if_can([:file, post]) do
+              %i{:class => "icon-doc-#{post.file_ext}"}
+              =post.file_name
       -if post.image
         .row
           .span2
@@ -33,4 +39,4 @@
       -if post.tags.present?
         .post_tags.mt-1
           -post.tags.each do |tag|
-            =link_to_tag(tag)
+            =link_to_tag(tag, :class => "pull-left mr-1")

@@ -17,6 +17,10 @@ module YmPosts::PostsController
     current_post.destroy
   end
   
+  def file
+    send_file(current_post.file_path, :filename => current_post.file_name)
+  end
+  
   def modal
     render :layout => false
   end

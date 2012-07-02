@@ -5,8 +5,10 @@ module YmPosts::Post
     base.belongs_to(:user)
     base.belongs_to(:target, :polymorphic => true)
     base.image_accessor(:image)
+    base.file_accessor(:file)
     base.validates_presence_of(:user)
     base.send(:validates_property, :format, :of => :image, :in => [:jpeg, :jpg, :png, :gif], :message => "must be an image")
+    base.validates :file, :length => {:maximum => 2.megabytes}, :allow_blank => true
     base.validate(:has_content)
     base.acts_as_taggable
     base.send(:default_scope, base.order("created_at DESC"))
@@ -16,6 +18,14 @@ module YmPosts::Post
       base.where([conditions, {:target_type => target.class.to_s, :target_id => target.id}])
     end)
     base.per_page = 10
+  end
+  
+  def file_ext
+    file.try(:ext)
+  end
+  
+  def file_path
+    file.try(:path)
   end
   
   def to_s
