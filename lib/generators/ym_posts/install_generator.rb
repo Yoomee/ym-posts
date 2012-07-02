@@ -8,6 +8,7 @@ module YmPosts
 
       def manifest
         copy_file "models/post.rb", "app/models/post.rb"
+        copy_file "models/comment.rb", "app/models/comment.rb"
         copy_file "controllers/posts_controller.rb", "app/controllers/posts_controller.rb"
         copy_file "views/tags/show.html.haml", "app/views/tags/show.html.haml"
         copy_file "views/tags/show.js.erb", "app/views/tags/show.js.erb"
@@ -24,6 +25,7 @@ module YmPosts
         # Migrations must go last
         try_migration_template "migrations/create_posts.rb", "db/migrate/create_posts"
         try_migration_template "migrations/add_file_fields_to_posts.rb", "db/migrate/add_file_fields_to_posts"
+        try_migration_template "migrations/create_comments.rb", "db/migrate/create_comments"
       end
 
       def self.next_migration_number(path)
