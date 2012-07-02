@@ -8,6 +8,8 @@ YmPosts =
     init: () ->
       $('form.post_form:not(.expanded)').live 'focusin', () ->
         `$(this)`.addClass('expanded')
+      $('a[data-toggle]').live 'click', (event) ->
+        event.preventDefault()
   Pagination:
     init: () ->
       $('.posts .pagination a').live 'ajax:before', -> 
