@@ -113,7 +113,7 @@ div.post .comments {
   margin-bottom: 0;
   font-size: 12px;
 }
-.comment-form form input[type='text'] {
+.comment-form form textarea {
   width: 577px;
   margin: 0;
 }

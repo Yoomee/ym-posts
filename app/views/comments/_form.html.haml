@@ -3,4 +3,4 @@
   =semantic_form_for(comment, :remote => true, :html => {:class => "loader-long"}) do |form|
     =form.hidden_field :post_id
     =form.inputs do
-      =form.input :text, :as => :string, :label => false, :input_html => {:placeholder => "Write a comment...", :id => ""}
+      =form.input :text, :label => false, :input_html => {:rows => 1, :placeholder => "Write a comment...", :id => "", :class => "autogrow-short"}
