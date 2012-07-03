@@ -15,8 +15,13 @@ module YmPosts
         copy_file "views/tags/show.js.erb", "app/views/tags/show.js.erb"
 
         if should_add_abilities?('Post')
-          add_ability(:user, ["can [:read, :create, :file], Post", "can [:update, :destroy], Post, :user_id => user.id"])
+          add_ability(:user, ["can [:read, :create, :file], Post", "can [:update, :destroy], Post, :user_id => user.id", "can [:create], Comment"])
           insert_into_file "app/controllers/posts_controller.rb", "\n  load_and_authorize_resource", :after => "include YmPosts::PostsController"
+        end
+        
+        if should_add_abilities?('Comment')
+          add_ability(:user, ["can [:create], Comment"])
+          insert_into_file "app/controllers/comments_controller.rb", "\n  load_and_authorize_resource", :after => "include YmPosts::CommentsController"
         end
         
         if File.exists?("#{Rails.root}/app/controllers/tags_controller.rb")
