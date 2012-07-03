@@ -35,6 +35,8 @@ form.post_form input {
 }
 div.post {
   width: 100%;
+  float: left;
+  clear: both;
 }
 div.post .post_user {
   width: 100%;
@@ -70,4 +72,31 @@ form.post_form.expanded .fake-textarea textarea {
 }
 #post_modal a.close {
   margin-top: -2px;
+}
+
+/*========== Comments ==========*/
+
+div.post .comment-list {
+  width: 90%;
+  float: right;
+  clear: both;
+}
+.comment-list .comment {
+  float: left;
+  clear: both;
+  margin-top: 10px;
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+}
+.comment-list .first-comment {
+  border-top: none;
+  padding-top: 0px;
+}
+.comment-list .comment .comment-image {
+  float: left;
+  width: 8%;
+}
+.comment-list .comment .comment-text {
+  float: left;
+  width: 92%;
 }
