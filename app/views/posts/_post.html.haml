@@ -40,4 +40,7 @@
         .post_tags.mt-1
           -post.tags.each do |tag|
             =link_to_tag(tag, :class => "pull-left mr-1")
-  =render("comments/list", :comments => post.comments)
+  .comments
+    .comment-list
+      =render(:partial => "comments/comment", :collection => post.comments)
+    =render("comments/form", :comment => post.comments.build)

@@ -76,27 +76,44 @@ form.post_form.expanded .fake-textarea textarea {
 
 /*========== Comments ==========*/
 
-div.post .comment-list {
+div.post .comments {
   width: 90%;
   float: right;
-  clear: both;
 }
-.comment-list .comment {
+.comment-list {
+  margin-top: 10px;  
+}
+.comment-list,
+.comment-form {
   float: left;
   clear: both;
-  margin-top: 10px;
-  border-top: 1px solid #ccc;
-  padding-top: 10px;
+  width: 100%;
+}
+.comment-list div.comment {
+  float: left;
+  clear: both;
+  margin-bottom: 10px;  
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+  width: 100%;
 }
 .comment-list .first-comment {
   border-top: none;
   padding-top: 0px;
 }
-.comment-list .comment .comment-image {
+.comment-list div.comment .comment-image,
+.comment-form .comment-image {
   float: left;
-  width: 8%;
+  width: 7%;
 }
-.comment-list .comment .comment-text {
+.comment-list div.comment .comment-text,
+.comment-form form {
   float: left;
-  width: 92%;
+  width: 93%;
+  margin-bottom: 0;
+  font-size: 12px;
+}
+.comment-form form input[type='text'] {
+  width: 577px;
+  margin: 0;
 }

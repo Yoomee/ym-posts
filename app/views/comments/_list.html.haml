@@ -1,9 +1,0 @@
-.comment-list
-  -comments.each_with_index do |comment, index|
-    .comment{:class => "#{index.zero? ? 'first-comment' : ''}"}
-      =link_to(image_for(comment.user, "30x30#"), comment.user, :class => "comment-image")
-      .comment-text
-        =link_to_self(comment.user)
-        =comment.text
-        .small-info-text
-          =time_ago_in_words(comment.created_at) + " ago"

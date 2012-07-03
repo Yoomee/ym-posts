@@ -10,6 +10,7 @@ module YmPosts
         copy_file "models/post.rb", "app/models/post.rb"
         copy_file "models/comment.rb", "app/models/comment.rb"
         copy_file "controllers/posts_controller.rb", "app/controllers/posts_controller.rb"
+        copy_file "controllers/comments_controller.rb", "app/controllers/comments_controller.rb"        
         copy_file "views/tags/show.html.haml", "app/views/tags/show.html.haml"
         copy_file "views/tags/show.js.erb", "app/views/tags/show.js.erb"
 

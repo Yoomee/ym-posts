@@ -15,5 +15,12 @@ YmPosts =
       $('.posts .pagination a').live 'ajax:before', -> 
         $('.posts').addClass('loading')
 
+YmComments = 
+  Form:
+    init: () ->
+      $('.comment-form form').live 'ajax:beforeSend', () ->
+        $(this).addClass("loading")
+      
 $(document).ready ->
   YmPosts.init()
+  YmComments.Form.init()
