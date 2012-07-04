@@ -104,12 +104,12 @@ div.post .comments {
 .comment-list div.comment .comment-image,
 .comment-form .comment-image {
   float: left;
-  width: 7%;
+  width: 32px;
 }
 .comment-list div.comment .comment-text,
 .comment-form form {
-  float: left;
-  width: 93%;
+  float: right;
+  width: 587px;
   margin-bottom: 0;
   font-size: 12px;
 }
