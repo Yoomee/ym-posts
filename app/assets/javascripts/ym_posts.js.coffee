@@ -18,15 +18,15 @@ YmPosts =
 
 YmComments = 
   Form:
-    init: () ->
+    init: (options = {submitOnEnter: true}) ->
       $('.comment-form form').live 'ajax:beforeSend', () ->
         $(this).addClass("loading")
       $(".comment-form textarea").autogrow()
-      $(".comment-form textarea").live 'keydown', (event) ->
-        if event.keyCode == 13
-          event.preventDefault()
-          $(this).parents('form').submit()
+      if options.submitOnEnter
+        $(".comment-form textarea").live 'keydown', (event) ->
+          if event.keyCode == 13
+            event.preventDefault()
+            $(this).parents('form').submit()
       
 $(document).ready ->
   YmPosts.init()
-  YmComments.Form.init()
