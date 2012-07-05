@@ -4,7 +4,7 @@ module YmPosts::Post
     base.send(:include, YmVideos::HasVideo)
     base.belongs_to(:user)
     base.belongs_to(:target, :polymorphic => true)
-    base.has_many(:comments)
+    base.has_many(:comments, :dependent => :destroy)
     base.image_accessor(:image)
     base.file_accessor(:file)
     base.validates_presence_of(:user)
