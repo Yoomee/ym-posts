@@ -16,7 +16,7 @@ YmPosts =
       $('.posts .pagination a').live 'ajax:before', -> 
         $('.posts').addClass('loading')
 
-YmComments = 
+window.YmComments = 
   Form:
     init: (options = {submitOnEnter: true}) ->
       $('.comment-form form').live 'ajax:beforeSend', () ->
