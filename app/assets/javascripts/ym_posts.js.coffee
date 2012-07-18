@@ -16,7 +16,7 @@ YmPosts =
       $('.posts .pagination a').live 'ajax:before', -> 
         $('.posts').addClass('loading')
 
-window.YmComments = 
+YmComments = 
   Form:
     init: (options = {submitOnEnter: true}) ->
       $('.comment-form form').live 'ajax:beforeSend', () ->
@@ -27,6 +27,8 @@ window.YmComments =
           if event.keyCode == 13
             event.preventDefault()
             $(this).parents('form').submit()
-      
+            
+window.YmComments = YmComments
+
 $(document).ready ->
   YmPosts.init()
