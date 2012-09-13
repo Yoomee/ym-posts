@@ -1,24 +1,28 @@
 module YmPosts::PostsController
   
   def self.included(base)
+    base.load_and_authorize_resource
     base.expose(:current_post) {params[:id].present? ? Post.find(params[:id]) : Post.new(params[:post] || {})}
-    base.expose(:posts) {Post.page(params[:page])}
-    base.expose(:top_tags) {Post.tag_counts_on(:tags, :limit => 10)}
   end
   
   def create
-    current_post.user = current_user
-    if current_post.save
-      @new_post = Post.new(:target => current_post.target, :user => current_post.user)
+    @post = current_user.posts.build(params[:post])
+    if @post.save
+      @new_post = Post.new(:target => @post.target, :user => @post.user)
     end
   end
   
   def destroy
-    current_post.destroy
+    @post.destroy
   end
   
   def file
-    send_file(current_post.file_path, :filename => current_post.file_name)
+    send_file(@post.file_path, :filename => @post.file_name)
+  end
+
+  def index
+    @posts = Post.page(params[:page])    
+    @top_tags = Post.tag_counts_on(:tags, :limit => 10)
   end
   
   def modal

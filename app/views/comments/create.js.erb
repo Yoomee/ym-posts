@@ -1,6 +1,5 @@
 <%if @comment.errors.empty?%>
   $('#post<%=@comment.post_id%> .comment-list').append('<%=escape_javascript(render('comments/comment', :comment => @comment))%>')
-  $('#post<%=@comment.post_id%> .comment-list .comment-text:last').effect("highlight", {}, 3000);
   <%@comment = Comment.new(:post_id => @comment.post_id, :user_id => @comment.user_id)%>
 <%end%>
-  $('#post<%=@comment.post_id%> .comment-form').replaceWith('<%=escape_javascript(render('comments/form', :comment => @comment))%>')
+$('#post<%=@comment.post_id%> .comment-form').replaceWith('<%=escape_javascript(render('comments/form', :comment => @comment))%>')
