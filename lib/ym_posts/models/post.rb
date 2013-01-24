@@ -1,6 +1,7 @@
 module YmPosts::Post
   
   def self.included(base)
+    base.send(:before_validation, :extract_video_url)
     base.send(:include, YmVideos::HasVideo)
     base.belongs_to(:user)
     base.belongs_to(:target, :polymorphic => true)
@@ -37,6 +38,14 @@ module YmPosts::Post
   def has_content
     if text.blank? && image.nil? && video_url.blank?
       errors.add(:text, "can't be blank")
+    end
+  end
+  
+  def extract_video_url
+    if video_url.blank?    
+      if matches = (text.match(YmVideos::YOUTUBE_REGEX) || text.match(YmVideos::VIMEO_REGEX))
+        self.video_url = "http://#{matches[0]}"
+      end  
     end
   end
   
