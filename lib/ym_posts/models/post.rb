@@ -9,7 +9,7 @@ module YmPosts::Post
     base.image_accessor(:image)
     base.file_accessor(:file)
     base.validates_presence_of(:user)
-    base.send(:validates_property, :format, :of => :image, :in => [:jpeg, :jpg, :png, :gif], :message => "must be an image")
+    base.send(:validates_property, :format, :of => :image, :in => [:jpeg, :jpg, :png, :gif], :message => "must be an image", :case_sensitive => false)
     base.validates :file, :length => {:maximum => 2.megabytes}, :allow_blank => true
     base.validate(:has_content)
     base.acts_as_taggable
