@@ -43,4 +43,5 @@
   .comments
     .comment-list
       =render(:partial => "comments/comment", :collection => post.comments)
-    =render("comments/form", :comment => post.comments.build)
+    -if can?(:new, Comment)
+      =render("comments/form", :comment => post.comments.build)
