@@ -1,7 +1,9 @@
 module YmPosts::CommentsController
   
   def create
-    @comment = current_user.comments.create(params[:comment])
+    if @comment = current_user.comments.create(params[:comment])
+      @comment.email_users
+    end
   end
   
 end

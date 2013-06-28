@@ -1,0 +1,12 @@
+Hi <%=@user.first_name%>,
+
+<%=@comment.user%> commented on <%=@name_or_your%> post:
+
+"<%=@comment.text.truncate(50)%>"
+
+View the full comment here: <%=post_url(@comment.post)%>
+
+Thanks,
+
+The <%=Settings.site_name%> team
+<%=Settings.site_url%>

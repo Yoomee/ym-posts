@@ -1,0 +1,17 @@
+!!!
+%html
+  %body
+    %p
+      ="Hi #{@user.first_name},"
+    %p
+      ="#{@comment.user} commented on #{@name_or_your} post:"
+    %p
+      ="#{@comment.text.truncate(50)}"
+    %p
+      =link_to('View the full comment', post_url(@comment.post))
+    %p
+      Thanks,
+    %p
+      ="The #{Settings.site_name} team"
+      %br
+      =Settings.site_url

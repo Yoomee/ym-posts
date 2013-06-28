@@ -6,6 +6,7 @@ module YmPosts::Post
     base.belongs_to(:user)
     base.belongs_to(:target, :polymorphic => true)
     base.has_many(:comments, :dependent => :destroy)
+    base.has_many(:users_that_commented, :through => :comments, :source => :user)
     base.image_accessor(:image)
     base.file_accessor(:file)
     base.validates_presence_of(:user)
