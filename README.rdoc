@@ -1,3 +1,13 @@
-= YmPosts
+NOTES:
 
-This project rocks and uses MIT-LICENSE.
+1. May need to include jquery.ui.autocomplete styles in app, e.g. in application.css:
+
+ *= require jquery.ui.autocomplete
+ 
+2. Init the comments form in document ready, e.g. in application.js.coffee:
+
+  YmComments.Form.init({submitOnEnter: true})
+  
+3. Don't forget to also call the ym_tags install if neccessary, e.g. in terminal:
+
+   $ rails g ym_tags:install

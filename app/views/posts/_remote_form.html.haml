@@ -15,4 +15,4 @@
       =link_to("Add a photo", "#", :data => {:media_type => "image"}, :class => "btn btn-small post-add-media")
       =link_to("Add a video", "#", :data => {:media_type => "video"}, :class => "btn btn-small post-add-media")
       =link_to("Add a file", "#", :data => {:media_type => "file"}, :class => "btn btn-small post-add-media")
-      =form.commit_button "Post", :button_html => {:class => "pull-right btn-primary mb-1", :"data-loading-text" => "Posting..."}
+      =form.action :submit, :label => "Post", :button_html => {:class => "btn btn-primary pull-right mb-1", :"data-loading-text" => "Posting..."}

@@ -10,9 +10,7 @@ module YmPosts
         copy_file "models/post.rb", "app/models/post.rb"
         copy_file "models/comment.rb", "app/models/comment.rb"
         copy_file "controllers/posts_controller.rb", "app/controllers/posts_controller.rb"
-        copy_file "controllers/comments_controller.rb", "app/controllers/comments_controller.rb"        
-        copy_file "views/tags/show.html.haml", "app/views/tags/show.html.haml"
-        copy_file "views/tags/show.js.erb", "app/views/tags/show.js.erb"
+        copy_file "controllers/comments_controller.rb", "app/controllers/comments_controller.rb"
 
         if should_add_abilities?('Post')
           add_ability(:user, ["can [:read, :create, :file], Post", "can [:update, :destroy], Post, :user_id => user.id", "can [:create], Comment"])
@@ -22,10 +20,6 @@ module YmPosts
         if should_add_abilities?('Comment')
           add_ability(:user, ["can [:create], Comment"])
           insert_into_file "app/controllers/comments_controller.rb", "\n  load_and_authorize_resource", :after => "include YmPosts::CommentsController"
-        end
-        
-        if File.exists?("#{Rails.root}/app/controllers/tags_controller.rb")
-          insert_into_file "app/controllers/tags_controller.rb", "  expose(:posts) {Post.tagged_with(current_tag.name).page(params[:page])}\n", :after => "include YmTags::TagsController\n"
         end
         
         # Migrations must go last

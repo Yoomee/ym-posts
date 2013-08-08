@@ -1,5 +1,4 @@
 #= require jquery.remotipart
-#= require jquery.autogrow-textarea
 
 YmPosts =
   init: () ->

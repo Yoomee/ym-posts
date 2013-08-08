@@ -2,7 +2,6 @@ module YmPosts::PostsController
   
   def self.included(base)
     base.load_and_authorize_resource
-    base.expose(:current_post) {params[:id].present? ? Post.find(params[:id]) : Post.new(params[:post] || {})}
   end
   
   def create

@@ -2,5 +2,6 @@
   $('form#new_post').replaceWith('<%=escape_javascript(render('posts/remote_form', :post => (@new_post || @post)))%>');
   <%if @post.valid?%>
     $('div.posts').prepend('<%=escape_javascript(render('posts/post', :post => @post))%>');
+    $(".comment-form textarea").autogrow();
   <%end%>
 <%end%>

@@ -39,7 +39,8 @@
       -if post.tags.present?
         .post_tags.mb-1
           -post.tags.each do |tag|
-            =link_to_tag(tag, :class => "pull-left mr-1")
+            =tag_label(tag, :class => "pull-left mr-1")
+    .clearfix
   .comments
     .comment-list
       =render(:partial => "comments/comment", :collection => post.comments)

@@ -139,5 +139,6 @@ div.post .comments {
   float: right;
   margin: 0;  
   width: 97%;
+  height: auto;
   padding: 1.5%;
 }
