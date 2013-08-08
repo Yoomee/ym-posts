@@ -6,12 +6,13 @@ YmPosts =
     YmPosts.Pagination.init()
   Form:
     init: () ->
-      $(document).mouseup (event) =>
-        expandedForm = $('form.post_form.expanded')
-        if !expandedForm.is(event.target) && !expandedForm.has(event.target).length
-          YmPosts.Form.hideIfNotEnteredData()
-      $('form.post_form:not(.expanded)').live 'focusin', () ->
-        $(this).addClass('expanded')
+      if $('form.post_form:not(.expanded)').length
+        $(document).mouseup (event) =>
+          expandedForm = $('form.post_form.expanded')
+          if !expandedForm.is(event.target) && !expandedForm.has(event.target).length
+            YmPosts.Form.hideIfNotEnteredData()
+        $('form.post_form:not(.expanded)').live 'focusin', () ->
+          $(this).addClass('expanded')
       $('.post-add-media').live 'click', (event) ->
         event.preventDefault()
         parentForm = $(this).parents('form')
