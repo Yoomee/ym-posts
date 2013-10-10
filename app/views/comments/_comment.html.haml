@@ -1,7 +1,10 @@
-.comment
+.comment{:id => "comment#{comment.id}"}
   =link_to(image_for(comment.user, "32x32#"), comment.user, :class => "comment-image")
   .comment-text
     =link_to_self(comment.user)
     =comment.text
     .small-info-text
       =time_ago_in_words(comment.created_at) + " ago"
+    %span.comment-delete-link      
+      -if can?(:destroy, comment)
+        =link_to "Remove", comment, :method => :delete, :confirm => 'Are you sure?', :remote => true, :class => 'comment-delete-link'

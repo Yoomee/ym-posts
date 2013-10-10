@@ -43,7 +43,8 @@ YmComments =
           if event.keyCode == 13
             event.preventDefault()
             $(this).parents('form').submit()
-            
+      $('.comment-delete-link').live 'click', (event) ->        
+        event.preventDefault()      
 window.YmComments = YmComments
 
 $(document).ready ->
