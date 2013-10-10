@@ -38,6 +38,10 @@ div.post {
   float: left;
   clear: both;
 }
+div.post.removed{
+  background-color: #FFE4E1;
+  padding:10px;
+}
 div.post .post_user {
   width: 100%;
   padding-bottom: 5px;
@@ -91,6 +95,10 @@ form.post_form input[type='submit'] {
 div.post .comments {
   width: 90%;
   float: right;
+}
+
+div.comment.removed{
+  background-color:#FFE4E1;
 }
 .comment-list {
   margin-top: 10px;  
