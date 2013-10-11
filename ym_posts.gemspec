@@ -22,6 +22,7 @@ Gem::Specification.new do |s|
   s.add_dependency "ym_videos", "~> 1.0"
   s.add_dependency "jquery-rails"
   s.add_dependency 'remotipart', '~> 1.0'
+  s.add_dependency "ym_notifications", "~> 1.0"
   
   # for testing
   s.add_development_dependency "mysql2"    
