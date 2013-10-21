@@ -1,0 +1,8 @@
+-if @comment
+  -content_for(:head) do
+    :coffeescript
+      $ ->
+        YmCore.scrollTo('#comment#{@comment.id}')
+
+-title("#{@post.user.first_name}'s post")
+=render("posts/post", :post => @post)

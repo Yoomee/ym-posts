@@ -12,4 +12,9 @@ module YmPosts::CommentsController
     @comment.destroy
   end
   
+  def show
+    @post = @comment.post
+    render :template => 'posts/show'
+  end
+
 end

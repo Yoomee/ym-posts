@@ -28,4 +28,7 @@ module YmPosts::PostsController
     render :layout => false
   end
   
+  def show
+  end
+
 end

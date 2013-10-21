@@ -96,9 +96,11 @@ div.post .comments {
   width: 90%;
   float: right;
 }
-
 div.comment.removed{
   background-color:#FFE4E1;
+}
+div.comment.active {
+  background-color: #fafebd;
 }
 .comment-list {
   margin-top: 10px;  
