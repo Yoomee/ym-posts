@@ -18,4 +18,8 @@ module YmPosts::Comment
     users_to_notify.each { |user| Notification.create(:user => user, :resource => self, :resource_type => 'Comment') }
   end
   
+  def to_s
+    "#{user}'s comment"
+  end
+
 end
