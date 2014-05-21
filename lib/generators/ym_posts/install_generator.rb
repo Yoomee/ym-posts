@@ -7,6 +7,8 @@ module YmPosts
       desc "Installs YmPosts."
 
       system("bundle exec rails generate ym_tags:install")
+      system("bundle exec rails generate ym_users:install")
+      system("bundle exec rails generate ym_notifications:install")
 
       def manifest
         copy_file "models/post.rb", "app/models/post.rb"
