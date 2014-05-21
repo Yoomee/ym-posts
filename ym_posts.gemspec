@@ -32,6 +32,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency "capybara", "~> 2.0.3"
   s.add_development_dependency "guard-rspec"
   s.add_development_dependency "geminabox"
-  s.add_development_dependency "ym_tools", '~> 1.0'
+  s.add_development_dependency "ym_tools", '~> 0.1.14'
 
 end
