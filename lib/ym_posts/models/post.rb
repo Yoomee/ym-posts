@@ -13,7 +13,7 @@ module YmPosts::Post
     base.validates :file, :length => {:maximum => 2.megabytes}, :allow_blank => true
     base.validate(:has_content)
     base.acts_as_taggable
-    base.send(:default_scope, base.order("created_at DESC"))
+    base.default_scope { order(:created_at => :desc) }
     base.scope :for_wall, (lambda do |target|
       conditions = "(target_type = :target_type AND target_id=:target_id)"
       conditions << " OR user_id = :target_id" if target.is_a?(User)
