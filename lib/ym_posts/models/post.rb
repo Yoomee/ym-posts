@@ -13,13 +13,22 @@ module YmPosts::Post
     base.validates :file, :length => {:maximum => 2.megabytes}, :allow_blank => true
     base.validate(:has_content)
     base.acts_as_taggable
-    base.default_scope { order(:created_at => :desc) }
     base.scope :for_wall, (lambda do |target|
       conditions = "(target_type = :target_type AND target_id=:target_id)"
       conditions << " OR user_id = :target_id" if target.is_a?(User)
       base.where([conditions, {:target_type => target.class.to_s, :target_id => target.id}])
     end)
     base.per_page = 10
+
+    base.extend(ClassMethods)
+  end
+  
+  module ClassMethods
+    
+    def default_scope
+      order(:created_at => :desc)
+    end
+    
   end
   
   def file_ext
