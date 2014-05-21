@@ -5,7 +5,7 @@ module YmPosts::PostsController
   end
   
   def create
-    @post = current_user.posts.build(params[:post])
+    @post = current_user.posts.build(post_params)
     if @post.save
       @new_post = Post.new(:target => @post.target, :user => @post.user)
     end
@@ -29,6 +29,11 @@ module YmPosts::PostsController
   end
   
   def show
+  end
+
+  private
+  def post_params
+    params.require(:post).permit(:file, :image, :retained_image, :tag_list, :target_id, :target_type, :text, :video_url, :retained_file)
   end
 
 end

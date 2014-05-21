@@ -5,7 +5,7 @@ module YmPosts::CommentsController
   end
 
   def create
-    @comment = current_user.comments.create(params[:comment])
+    @comment = current_user.comments.create(comment_params)
   end
 
   def destroy
@@ -15,6 +15,11 @@ module YmPosts::CommentsController
   def show
     @post = @comment.post
     render :template => 'posts/show'
+  end
+
+  private
+  def comment_params
+    params.require(:comment).permit(:post_id, :text)
   end
 
 end
