@@ -6,6 +6,8 @@ module YmPosts
       source_root File.expand_path("../templates", __FILE__)
       desc "Installs YmPosts."
 
+      system("bundle exec rails generate ym_tags:install")
+
       def manifest
         copy_file "models/post.rb", "app/models/post.rb"
         copy_file "models/comment.rb", "app/models/comment.rb"
