@@ -23,9 +23,10 @@ module YmPosts
         end
         
         # Migrations must go last
-        try_migration_template "migrations/create_posts.rb", "db/migrate/create_posts"
-        try_migration_template "migrations/add_file_fields_to_posts.rb", "db/migrate/add_file_fields_to_posts"
-        try_migration_template "migrations/create_comments.rb", "db/migrate/create_comments"
+        Dir[File.dirname(__FILE__) + '/templates/migrations/*.rb'].each do |file_path|
+          file_name = file_path.split("/").last
+          try_migration_template "migrations/#{file_name}", "db/migrate/#{file_name.sub(/^\d+\_/, '')}"
+        end
       end
 
       def self.next_migration_number(path)
