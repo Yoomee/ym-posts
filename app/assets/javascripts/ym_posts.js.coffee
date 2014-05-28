@@ -11,13 +11,13 @@ YmPosts =
           expandedForm = $('form.post_form.expanded')
           if !expandedForm.is(event.target) && !expandedForm.has(event.target).length
             YmPosts.Form.hideIfNotEnteredData()
+        $('form.post_form:not(.expanded) li').live 'click', () ->
+          YmPosts.Form.showExpandedFields()
         $('form.post_form:not(.expanded)').live 'focusin', () ->
-          $(this).addClass('expanded')
-      $('.post-add-media').live 'click', (event) ->
-        event.preventDefault()
-        parentForm = $(this).parents('form')
-        parentForm.find(".post-media-field:not([data-media-type='#{$(this).data('media-type')}'])").hide()
-        parentForm.find(".post-media-field[data-media-type='#{$(this).data('media-type')}']").toggle()
+          YmPosts.Form.showExpandedFields()
+    showExpandedFields: () ->
+      $('form.post_form:not(.expanded)').addClass('expanded')
+      $('.not-expanded').addClass('in')
     hideIfNotEnteredData: () ->
       expandedForm = $('form.post_form.expanded')
       enteredData = false
@@ -26,7 +26,8 @@ YmPosts =
           enteredData = true
           return
       unless enteredData
-        expandedForm.removeClass('expanded')        
+        expandedForm.removeClass('expanded')
+        $('.not-expanded').removeClass('in')
   Pagination:
     init: () ->
       $('.posts .pagination a').live 'ajax:before', -> 
