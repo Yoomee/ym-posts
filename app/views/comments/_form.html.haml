@@ -1,6 +1,6 @@
 .comment-form
-  =link_to(image_for(current_user, "30x30#"), current_user, :class => "comment-image")
-  =semantic_form_for(comment, :remote => true, :html => {:class => "loader-long"}) do |form|
+  =link_to(image_for(current_user, '40x40#'), current_user, class: 'comment-image')
+  =semantic_form_for(comment, remote: true, html: { class: 'loader-long' }) do |form|
     =form.hidden_field :post_id
     =form.inputs do
-      =form.input :text, :label => false, :input_html => {:rows => 1, :placeholder => "Write a comment...", :id => "", :class => "autogrow-short"}
+      =form.input :text, label: false, input_html: { rows: 1, placeholder: 'Write a comment...', id: '', class: 'autogrow-short' }

@@ -1,10 +1,12 @@
-.comment{:id => "comment#{comment.id}", :class => comment == @comment ? 'active' : ''}
-  =link_to(image_for(comment.user, "32x32#"), comment.user, :class => "comment-image")
+.comment{ id: "comment#{comment.id}", class: comment == @comment ? 'active' : '' }
+  -if can?(:destroy, comment)
+    =link_to('', comment, method: :delete, confirm: 'Are you sure?', remote: true, class: 'comment-delete-link', icon: 'trash-o')
+  =link_to(image_for(comment.user, '40x40#'), comment.user, class: 'comment-image' )
   .comment-text
     =link_to_self(comment.user)
+    %span.small-info-text
+      replied
+      =time_ago_in_words(comment.created_at) + ' ago'
+    %br
     =comment.text
-    .small-info-text
-      =time_ago_in_words(comment.created_at) + " ago"
-    %span.comment-delete-link      
-      -if can?(:destroy, comment)
-        =link_to "Remove", comment, :method => :delete, :confirm => 'Are you sure?', :remote => true, :class => 'comment-delete-link'
+  .clear

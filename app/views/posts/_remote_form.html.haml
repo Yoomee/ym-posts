@@ -12,13 +12,13 @@
         %li=link_to('File', '#file', data: { toggle: :tab }, icon: 'file')
       .tab-content
         #write.tab-pane.fade.in.active
-          =form.input :text, label: false, input_html: { rows: 3, placeholder: 'Post something' }
+          =form.input :text, label: false, input_html: { rows: 3, placeholder: 'Post something' }, class: 'mb-0'
         #image.tab-pane.fade
           =form.input :image, as: :file, label: false
         #video.tab-pane.fade
           =form.input :video_url, label: false, input_html: { placeholder: 'URL from YouTube or Vimeo' }
         #file.tab-pane.fade
           =form.input :file, as: :file, label: false
-      .not-expanded.fade
+      .not-expanded
         =form.input :tag_list, label: false, input_html: { placeholder: 'Tags', data: { autocomplete: autocomplete_tags_path, delimiter: ', ' }}
         =form.action :submit, label: 'Post', button_html: { class: 'btn btn-primary pull-right mb-1', data: { loading_text: 'Posting...' }}

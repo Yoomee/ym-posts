@@ -2,8 +2,14 @@
 
 YmPosts =
   init: () ->
+    YmPosts.Comments.init()
     YmPosts.Form.init()  
     YmPosts.Pagination.init()
+  Comments:
+    init: () ->
+      $('a.toggle-comments').click (event) ->
+        event.preventDefault()
+        $(this).parent().toggleClass('expanded')
   Form:
     init: () ->
       if $('form.post_form:not(.expanded)').length

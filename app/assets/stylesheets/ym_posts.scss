@@ -1,92 +1,101 @@
-.posts {
-  width: 100%;
+.post_form:not(.expanded) {
+  .form-group {
+    margin-bottom: 0;
+  }
+  .not-expanded {
+    display: none;
+  }
 }
-div.post {
-  width: 100%;
-  float: left;
-  clear: both;
-}
-div.post.removed{
-  background-color: #FFE4E1;
-  padding:10px;
-}
-div.post .post_user {
-  width: 100%;
-  padding-bottom: 5px;
-}
-div.post .post_user img {
-  margin-right: 10px;
-}
-#post_modal, #post_modal .modal-body {
-  width: auto;
-/*  max-height: none;*/
-}
-#post_modal .modal-header {
-  border: none;
-}
-#post_modal a.close {
-  margin-top: -2px;
+.post{
+  border-radius: 5px;
+  box-shadow:0 1px 10px rgba(0, 0, 0, 0.04), 0 1px 1px rgba(0, 0, 0, 0.1), 0 -1px 1px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background: #fff;
+  .post-tags {
+    margin-left: 10px;
+    span.tag-label {
+      background-color: #428bca;
+    }}
+  .post-top {
+    background:$g-1;
+    padding:9px 10px;
+    time{
+      padding:0 5px;
+      color:$g-2;
+    }
+    a, i {
+      float: left;
+      margin-left: 10px;
+      line-height: 1;
+      font-size: 1.2em;
+    }
+    img {
+      margin: 0 5px 5px 0;
+      border-radius: 5px
+    }
+    .post-delete
+      {
+        float:right;
+       .fa{
+          padding: 0px 5px;
+          font-size: 1.2em;
+          color:$g-3;
+          line-height: 1;
+          &:hover{
+            color:$g-4;
+          }
+        }
+    }
+    .post-delete .fa.active{
+      color:$g-4;
+    }
+  }
+  .post-content {
+     background: #fff;
+     padding: 20px;
+  }
+  .post-image {
+    position:relative;
+    max-height: 400px;
+    overflow: hidden;
+    a{
+      display: block;
+    }
+    img{
+      width:100%;
+    }
+  }
 }
 
 /*========== Comments ==========*/
-
-div.post .comments {
-  width: 90%;
-  float: right;
+.comments {
+  padding: 20px 0;
+  a.toggle-comments {
+    padding: 0 20px 20px 20px;
+  }
+  .comment, .comment-form {
+    display: none;
+  }
 }
-div.comment.removed{
-  background-color:#FFE4E1;
+.comments.expanded {
+  .comment, .comment-form {
+    display: block;
+  }
 }
-div.comment.active {
-  background-color: #fafebd;
-}
-.comment-list {
-  margin-top: 10px;  
-}
-.comment-list,
-.comment-form {
-  float: left;
-  clear: both;
-  width: 100%;
-}
-.comment-list div.comment {
-  float: left;
-  clear: both;
-  border-bottom: 1px solid #ccc;
-  padding: 10px 0;  
-  width: 100%;
-}
-.comment-list .first-comment {
-  border-top: none;
-  padding-top: 0px;
-}
-.comment-list div.comment .comment-image,
-.comment-form .comment-image {
-  float: left;
-  width: 7%;
-  margin-right: 1%;
-}
-.comment-list div.comment .comment-text,
-.comment-form form {
-  float: left;
-  margin-bottom: 0;
-  width: 92%;  
-}
-.comment-form {
+.comment, .comment-form {
   margin-top: 10px;
-}
-.comment-form .control-group {
-  margin: 0;
-}
-.comment-list div.comment .comment-text,
-.comment-form form,
-.comment-form form textarea {
-  font-size: 12px;
-}
-.comment-form form textarea {
-  float: right;
-  margin: 0;  
-  width: 97%;
-  height: auto;
-  padding: 1.5%;
+  a.comment-delete-link {
+    float: right;
+    margin-right: 10px;
+  }
+  padding-left: 15px;
+  img {
+    float: left;
+    border-radius: 5px;
+    margin: 0 5px 5px 0;
+  }
+  .comment-text {
+    float: left;
+    margin-left: 10px;
+  }
 }
