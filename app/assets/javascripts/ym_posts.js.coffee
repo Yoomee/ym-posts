@@ -17,9 +17,9 @@ YmPosts =
           expandedForm = $('form.post_form.expanded')
           if !expandedForm.is(event.target) && !expandedForm.has(event.target).length
             YmPosts.Form.hideIfNotEnteredData()
-        $('form.post_form:not(.expanded) li').live 'click', () ->
+        $("body").on 'click', 'form.post_form:not(.expanded) li',  () ->
           YmPosts.Form.showExpandedFields()
-        $('form.post_form:not(.expanded)').live 'focusin', () ->
+        $("body").on 'focusin', 'form.post_form:not(.expanded)', () ->
           YmPosts.Form.showExpandedFields()
     showExpandedFields: () ->
       $('form.post_form:not(.expanded)').addClass('expanded')
@@ -36,22 +36,22 @@ YmPosts =
         $('.not-expanded').removeClass('in')
   Pagination:
     init: () ->
-      $('.posts .pagination a').live 'ajax:before', -> 
+      $("body").on 'ajax:before', '.posts .pagination a', -> 
         $('.posts').addClass('loading')
 
 YmComments = 
   Form:
     init: (options = {submitOnEnter: true}) ->
-      $('.comment-form form').live 'ajax:beforeSend', () ->
+      $("body").on 'ajax:beforeSend', '.comment-form form', () ->
         $(this).addClass("loading")
       $(".comment-form textarea").autogrow()
       if options.submitOnEnter
-        $(".comment-form textarea").live 'keydown', (event) ->
+        $("body").on 'keydown', ".comment-form textarea", (event) ->
           if event.keyCode == 13
             event.preventDefault()
             $(this).parents('form').submit()
-      $('.comment-delete-link').live 'click', (event) ->        
-        event.preventDefault()      
+      $("body").on 'click', '.comment-delete-link', (event) ->
+        event.preventDefault()
 window.YmComments = YmComments
 
 $(document).ready ->
