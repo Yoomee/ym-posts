@@ -19,15 +19,15 @@ Gem::Specification.new do |s|
   s.add_dependency 'ym_core', "~> 1.0"
   s.add_dependency "ym_tags", "~> 1.0"
   s.add_dependency "ym_users", "~> 1.0"
-  s.add_dependency "ym_videos", "~> 1.0"
+  s.add_dependency "ym_videos", "~> 2.0"
   s.add_dependency "jquery-rails"
   s.add_dependency 'remotipart', '~> 1.0'
   s.add_dependency "ym_notifications", "~> 1.0"
-  
+
   # for testing
-  s.add_development_dependency "mysql2"    
+  s.add_development_dependency "mysql2"
   s.add_development_dependency "rspec-rails"
-  s.add_development_dependency "factory_girl_rails"  
+  s.add_development_dependency "factory_girl_rails"
   s.add_development_dependency 'shoulda-matchers'
   s.add_development_dependency "capybara", "~> 2.0.3"
   s.add_development_dependency "guard-rspec"
