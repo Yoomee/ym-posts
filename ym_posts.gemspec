@@ -23,15 +23,11 @@ Gem::Specification.new do |s|
   s.add_dependency "jquery-rails"
   s.add_dependency 'remotipart', '~> 1.0'
   s.add_dependency "ym_notifications", "~> 1.0"
-  
+
   # for testing
-  s.add_development_dependency "mysql2"    
-  s.add_development_dependency "rspec-rails"
-  s.add_development_dependency "factory_girl_rails"  
-  s.add_development_dependency 'shoulda-matchers'
-  s.add_development_dependency "capybara", "~> 2.0.3"
-  s.add_development_dependency "guard-rspec"
-  s.add_development_dependency "geminabox"
+  s.add_development_dependency "mysql2"
+  s.add_development_dependency "pry-rescue"
+  s.add_development_dependency "pry-stack_explorer"
   s.add_development_dependency "ym_tools", '~> 0.1.14'
 
 end

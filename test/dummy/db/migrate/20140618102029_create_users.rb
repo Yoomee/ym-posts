@@ -4,6 +4,8 @@ class CreateUsers < ActiveRecord::Migration
       ## Custom
       t.string :first_name
       t.string :last_name
+      t.string :bio
+      t.string :role
       
       ## Database authenticatable
       t.string :email,              :null => false, :default => ""

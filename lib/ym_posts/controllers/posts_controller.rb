@@ -9,6 +9,10 @@ module YmPosts::PostsController
     if @post.save
       @new_post = Post.new(:target => @post.target, :user => @post.user)
     end
+    respond_to do |format|
+      format.html {}
+      format.js {}
+    end
   end
 
   def destroy
