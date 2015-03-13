@@ -17,7 +17,7 @@ YmPosts =
           expandedForm = $('form.post_form.expanded')
           if !expandedForm.is(event.target) && !expandedForm.has(event.target).length
             YmPosts.Form.hideIfNotEnteredData()
-        $("body").on 'click', 'form.post_form:not(.expanded) li',  () ->
+        $("body").on 'click', 'form.post_form:not(.expanded)',  () ->
           YmPosts.Form.showExpandedFields()
         $("body").on 'focusin', 'form.post_form:not(.expanded)', () ->
           YmPosts.Form.showExpandedFields()
