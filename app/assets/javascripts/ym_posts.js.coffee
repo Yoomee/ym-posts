@@ -3,7 +3,7 @@
 YmPosts =
   init: () ->
     YmPosts.Comments.init()
-    YmPosts.Form.init()  
+    YmPosts.Form.init()
     YmPosts.Pagination.init()
   Comments:
     init: () ->
@@ -21,6 +21,11 @@ YmPosts =
           YmPosts.Form.showExpandedFields()
         $("body").on 'focusin', 'form.post_form:not(.expanded)', () ->
           YmPosts.Form.showExpandedFields()
+        $('.post-add-media').on 'click', (event) ->
+          event.preventDefault()
+          parentForm = $(this).parents('form')
+          parentForm.find(".post-media-field:not([data-media-type='#{$(this).data('media-type')}'])").hide()
+          parentForm.find(".post-media-field[data-media-type='#{$(this).data('media-type')}']").toggle()
     showExpandedFields: () ->
       $('form.post_form:not(.expanded)').addClass('expanded')
       $('.not-expanded').addClass('in')
@@ -36,10 +41,10 @@ YmPosts =
         $('.not-expanded').removeClass('in')
   Pagination:
     init: () ->
-      $("body").on 'ajax:before', '.posts .pagination a', -> 
+      $("body").on 'ajax:before', '.posts .pagination a', ->
         $('.posts').addClass('loading')
 
-YmComments = 
+YmComments =
   Form:
     init: (options = {submitOnEnter: true}) ->
       $("body").on 'ajax:beforeSend', '.comment-form form', () ->
