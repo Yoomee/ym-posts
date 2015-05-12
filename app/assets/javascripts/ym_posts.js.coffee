@@ -49,7 +49,7 @@ YmComments =
     init: (options = {submitOnEnter: true}) ->
       $("body").on 'ajax:beforeSend', '.comment-form form', () ->
         $(this).addClass("loading")
-      $(".comment-form textarea").autogrow()
+      # $(".comment-form textarea").autogrow()
       if options.submitOnEnter
         $("body").on 'keydown', ".comment-form textarea", (event) ->
           if event.keyCode == 13
