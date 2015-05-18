@@ -2,7 +2,6 @@ module YmPosts::Post
   
   def self.included(base)
     base.send(:before_validation, :extract_video_url)
-    base.send(:include, YmVideos::HasVideo)
     base.belongs_to(:user)
     base.belongs_to(:target, :polymorphic => true)
     base.has_many(:comments, :dependent => :destroy)
