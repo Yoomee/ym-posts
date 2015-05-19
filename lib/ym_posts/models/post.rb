@@ -52,7 +52,7 @@ module YmPosts::Post
   def extract_video_url
     if video_url.blank? && text.present?
       if matches = (text.match(YmVideos::YOUTUBE_REGEX) || text.match(YmVideos::VIMEO_REGEX))
-        self.video_url = "http://#{matches[0]}"
+        self.video_url = "https://#{matches[0]}"
       end  
     end
   end
