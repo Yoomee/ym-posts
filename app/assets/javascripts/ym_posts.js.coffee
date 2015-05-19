@@ -21,7 +21,7 @@ YmPosts =
           YmPosts.Form.showExpandedFields()
         $("body").on 'focusin', 'form.post_form:not(.expanded)', () ->
           YmPosts.Form.showExpandedFields()
-        $('.share-post-form').on 'click', '.post-add-media', (event) ->
+        $('body').on 'click', '.post-add-media', (event) ->
           event.preventDefault()
           parentForm = $(this).parents('form')
           parentForm.find(".post-media-field:not([data-media-type='#{$(this).data('media-type')}'])").hide()
