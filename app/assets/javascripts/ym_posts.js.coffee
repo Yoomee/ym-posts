@@ -1,5 +1,3 @@
-#= require jquery.remotipart
-
 YmPosts =
   init: () ->
     YmPosts.Comments.init()
